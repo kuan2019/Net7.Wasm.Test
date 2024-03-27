@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<script src="~/_framework/blazor.webassembly.js" autostart="false" asp-append-version="true"></script>
+<script>
+  
+    window.getTime = () => {
+        let date = new Date();
+        return new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON();
+        // return new Date().toJSON();
+    };
+
+    window.onload = async function () {
+        await Blazor.start();
+
+        const r = await DotNet.invokeMethodAsync("Net7.Wasm", "Add", 666, 333);
+        alert(r);
+
+        const r2 = await DotNet.invokeMethodAsync("Net7.Wasm", "GetMessage", "Eric");
+        alert(r2);
+        
+        let booking = {
+            prod_oid: 123, prod_name: 'C# WASM Training Course',
+            qty: 2, price: 105.8, amount: 211.6
+        };
+        const r3 = await DotNet.invokeMethodAsync("Net7.Wasm", "CheckBookingAsync", booking);
+        alert(r3);
+    };
+
+</script>
+
