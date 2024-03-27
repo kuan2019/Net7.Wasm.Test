@@ -1,4 +1,4 @@
-C# 實作 WebAssembly，需在 VisualStudio 2022 for Mac 的 IDE 中建立兩個 .NET 7 的專案，分別是 Class Library 與 ASP.NET Core WebApp。
+C# 實作 WebAssembly，需在 VisualStudio 2022 for Mac 的 IDE 中建立兩個 .NET 7 的專案，分別是 Class Library (Net7.Wasm) 與 ASP.NET Core WebApp (Net7.Web.Test)。
 
 重點如下:
 * Class Library 要能順利建立 WASM 模組，得調整 .csproj 內容。具體可參考 Zack Yang 的[技術文章](https://yangzhongke8.medium.com/without-blazor-webassembly-develop-a-web-site-that-compiles-and-runs-c-code-on-browser-c381873f6d03)進行修正。 
